@@ -6,9 +6,10 @@
 
 body {
   margin: 0;
-  background: #0e0e0e; /* Dark background */
+  background: #0e0e0e;
   color: #fff;
   font-family: 'Fredoka', sans-serif;
+  overflow-x: hidden;
 }
 
 header {
@@ -21,12 +22,22 @@ header {
   padding: 20px 50px;
   z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out;
+}
+
+header:hover {
+  background-color: #1c1c1c;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logo img {
@@ -36,6 +47,7 @@ header {
 .logo span {
   font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: 1px;
 }
 
 nav a {
@@ -43,11 +55,12 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s;
+  transition: color 0.3s ease, transform 0.2s;
 }
 
 nav a:hover {
   color: #ffa500;
+  transform: translateY(-3px);
 }
 
 .contact-btn {
@@ -56,16 +69,24 @@ nav a:hover {
   border-radius: 10px;
   font-weight: 700;
   color: white;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #9f6df1;
 }
 
 .hero {
   padding: 100px 20px 50px;
   text-align: center;
+  transition: transform 0.4s ease;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
 }
 
 .hero p {
@@ -73,6 +94,13 @@ nav a:hover {
   color: #cfcfcf;
   max-width: 700px;
   margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .stats {
@@ -92,6 +120,12 @@ nav a:hover {
   min-width: 180px;
   flex-grow: 1;
   max-width: 300px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  background-color: #2a2a2a;
 }
 
 .stat h2 {
@@ -122,6 +156,8 @@ nav a:hover {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
 .game-card {
@@ -131,17 +167,23 @@ nav a:hover {
   overflow: hidden;
   width: 320px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
 }
 
 .game-card:hover {
   transform: scale(1.04);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .game-card img {
   width: 100%;
   height: 190px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+  transform: scale(1.1);
 }
 
 .game-info {
@@ -206,6 +248,11 @@ footer {
   text-align: center;
   font-size: 0.95rem;
   color: #aaa;
+  transition: background-color 0.3s ease;
+}
+
+footer:hover {
+  background-color: #1a1a1a;
 }
 
 .contact-section {
@@ -225,6 +272,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  animation: fadeIn 2.5s ease forwards;
 }
 
 .contact-form input,
@@ -235,6 +283,12 @@ footer {
   background: #1f1f1f;
   color: white;
   font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: #2a2a2a;
 }
 
 .contact-form button {
@@ -246,221 +300,41 @@ footer {
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-  background: #a27eff;
+  background: #9f6df1;
 }
 
-/* Meet the Devs Section */
-.meet-the-devs {
-  padding: 60px 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.meet-the-devs h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  text-align: center;
-  width: 100%;
-  display: block;
-}
-
-.meet-the-devs p {
-  font-size: 1.1rem;
-  color: #bbb;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.devs-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.dev-card {
-  background: #1b1b1b;
-  border-radius: 18px;
-  overflow: hidden;
-  width: 250px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.25s ease;
-}
-
-.dev-card:hover {
-  transform: scale(1.04);
-}
-
-.dev-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.dev-card h3 {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-.dev-card p {
-  font-size: 1rem;
-  color: #bbb;
-}
-
-/* General styles for text layout fixes */
-body {
-  font-family: 'Fredoka', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #0e0e0e; /* Correct dark background */
-  color: #fff;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-section {
-  padding: 50px 20px;
-}
-
-.hero, .stats, .devs-section {
-  text-align: center;
-}
-
-.devs-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.devs-card {
-  background: #1a1a1a;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.devs-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.devs-card h3 {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-.devs-card p {
-  font-size: 1rem;
-  color: #bbb;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #111;
-  color: #fff;
-}
-.socials {
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.socials a img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.2s ease;
-}
-
-.socials a:hover img {
-  transform: scale(1.2);
-  filter: brightness(0) invert(0.7);
-}
 .community-links {
-  background: #131313;
-  padding: 60px 30px;
   text-align: center;
+  padding: 60px 30px;
 }
 
 .community-links h2 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
-.community-links p {
-  font-size: 1.1rem;
-  color: #cfcfcf;
-  margin-bottom: 30px;
-}
-
-.community-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.community-btn {
+.community-links .community-btn {
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: #1e1e1e;
+  justify-content: center;
+  gap: 10px;
+  background-color: #1b1b1b;
   color: white;
-  text-decoration: none;
-  padding: 14px 22px;
-  border-radius: 14px;
-  font-weight: 600;
-  transition: transform 0.2s ease, background 0.2s ease;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
-.community-btn img {
-  width: 24px;
-  height: 24px;
-  filter: invert(1);
+.community-links .community-btn:hover {
+  background-color: #2a2a2a;
 }
 
-.community-btn:hover {
-  transform: scale(1.05);
-  background: #2b2b2b;
-}
-
-.community-btn.discord:hover {
-  background: #5865F2;
-}
-
-.community-btn.roblox:hover {
-  background: #c4c4c4;
-  color: #000;
+.community-links .community-btn img {
+  width: 20px;
+  height: 20px;
 }
 
