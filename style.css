@@ -407,46 +407,60 @@ footer {
   transform: scale(1.2);
   filter: brightness(0) invert(0.7);
 }
-.community-section {
-  background: #111;
-  padding: 60px 20px;
+.community-links {
+  background: #131313;
+  padding: 60px 30px;
   text-align: center;
 }
 
-.community-section h2 {
+.community-links h2 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #fff;
+  margin-bottom: 10px;
 }
 
-.community-links {
+.community-links p {
+  font-size: 1.1rem;
+  color: #cfcfcf;
+  margin-bottom: 30px;
+}
+
+.community-buttons {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
 .community-btn {
-  padding: 14px 28px;
-  border-radius: 14px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1e1e1e;
+  color: white;
   text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.community-btn.discord {
-  background: #5865F2;
-  color: #fff;
-}
-
-.community-btn.roblox {
-  background: #e2231a;
-  color: #fff;
+.community-btn img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
 }
 
 .community-btn:hover {
   transform: scale(1.05);
-  opacity: 0.9;
+  background: #2b2b2b;
+}
+
+.community-btn.discord:hover {
+  background: #5865F2;
+}
+
+.community-btn.roblox:hover {
+  background: #c4c4c4;
+  color: #000;
 }
 
