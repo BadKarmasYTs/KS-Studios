@@ -25,8 +25,6 @@
   </header>
 
   <section class="hero">
-  
-
     <h1>KS Studios</h1>
     <p>We Make Better Games.</p>
     <div class="stats">
@@ -121,73 +119,55 @@
     <p>© 2025 KS Studios. All rights reserved.</p>
   </footer>
 
- <script>
-  async function getStats(placeId) {
-    const [playersRes, visitsRes] = await Promise.all([
-      fetch(`https://games.roblox.com/v1/games?universeIds=${placeId}`),
-      fetch(`https://www.roblox.com/asset-thumbnail-async?assetId=${placeId}&format=json`)
-    ]);
+  <script>
+    fetch('games.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.querySelector('.games-container');
+        let totalPlayers = 0;
+        let totalVisits = 0;
 
-    const playersData = await playersRes.json();
-    const gameData = playersData.data?.[0] || {};
+        data.forEach(game => {
+          const el = document.createElement('div');
+          el.className = 'game-card';
 
-    return {
-      players: gameData.playing || 0,
-      visits: gameData.visits || 0
-    };
-  }
+          const link = document.createElement('a');
+          link.href = game.url;
+          link.target = '_blank';
+          link.className = 'game-card-link';
 
-  fetch('games.json')
-    .then(res => res.json())
-    .then(async data => {
-      const container = document.querySelector('.games-container');
-      let totalPlayers = 0;
-      let totalVisits = 0;
+          const img = document.createElement('img');
+          img.src = game.thumbnail;
+          img.alt = game.name;
 
-      for (const game of data) {
-        const stats = await getStats(game.placeId);
+          const info = document.createElement('div');
+          info.className = 'game-info';
+          info.innerHTML = 
+            <h3>${game.name}</h3>
+            <p>${game.creator}</p>
+            <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
+          ;
 
-        const el = document.createElement('div');
-        el.className = 'game-card';
+          const hoverDiv = document.createElement('div');
+          hoverDiv.className = 'game-card-hover';
+          hoverDiv.textContent = 'Go to Game';
+          hoverDiv.addEventListener('click', () => {
+            window.open(game.url, '_blank');
+          });
 
-        const link = document.createElement('a');
-        link.href = game.url;
-        link.target = '_blank';
-        link.className = 'game-card-link';
+          link.appendChild(img);
+          link.appendChild(info);
+          el.appendChild(link);
+          el.appendChild(hoverDiv);
+          container.appendChild(el);
 
-        const img = document.createElement('img');
-        img.src = game.thumbnail;
-        img.alt = game.name;
-
-        const info = document.createElement('div');
-        info.className = 'game-info';
-        info.innerHTML = `
-          <h3>${game.name}</h3>
-          <p>${game.creator}</p>
-          <p><strong>${stats.players}</strong> playing · ${stats.visits.toLocaleString()} visits</p>
-        `;
-
-        const hoverDiv = document.createElement('div');
-        hoverDiv.className = 'game-card-hover';
-        hoverDiv.textContent = 'Go to Game';
-        hoverDiv.addEventListener('click', () => {
-          window.open(game.url, '_blank');
+          totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
+          totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
         });
 
-        link.appendChild(img);
-        link.appendChild(info);
-        el.appendChild(link);
-        el.appendChild(hoverDiv);
-        container.appendChild(el);
-
-        totalPlayers += stats.players;
-        totalVisits += stats.visits;
-      }
-
-      document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
-      document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
-    });
-
+        document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
+        document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
+      });
 
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -200,7 +180,7 @@
       if (!name || !email || !roblox || !message) return;
 
       const content = {
-        content: `**New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
+        content: **New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}
       };
 
       fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
