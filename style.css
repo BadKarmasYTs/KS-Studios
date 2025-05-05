@@ -184,21 +184,39 @@ nav a:hover {
 }
 
 .about {
-  padding: 60px 30px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  background: rgba(30, 30, 40, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 900px;
+  box-shadow: 0 0 30px rgba(140, 120, 255, 0.15);
+  transform: translateY(30px) scale(0.97);
+  animation: popInAbout 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes popInAbout {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .about h2 {
   font-size: 2.2rem;
   margin-bottom: 20px;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 .about p {
   font-size: 1.1rem;
-  color: #bbb;
+  line-height: 1.8;
+  color: #ccc;
 }
+
 
 footer {
   padding: 20px;
@@ -353,12 +371,15 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.devs-card img {
+.dev-card img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
+  margin: 0 auto;
+  display: block;
 }
+
 
 .devs-card h3 {
   font-size: 1.5rem;
@@ -462,4 +483,113 @@ footer {
 .community-btn.roblox:hover {
   background: #c4c4c4;
   color: #000;
+}
+/* Smooth Fade-in on Page Load */
+body {
+  opacity: 0;
+  animation: fadeInBody 1.2s ease forwards;
+}
+
+@keyframes fadeInBody {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Slide Down */
+header {
+  transform: translateY(-100%);
+  animation: slideDownHeader 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideDownHeader {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Section Fade + Scale */
+section,
+.games-section,
+.about,
+.contact-section,
+.meet-the-devs,
+.community-links {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  animation: sectionEnter 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes sectionEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dev Cards Hover */
+.dev-card,
+.game-card,
+.devs-card,
+.community-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dev-card:hover,
+.game-card:hover,
+.devs-card:hover,
+.community-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Button Press Animations */
+.contact-form button,
+.community-btn {
+  transition: transform 0.15s ease;
+}
+
+.contact-form button:active,
+.community-btn:active {
+  transform: scale(0.95);
+}
+
+/* Nav Links */
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #8e5eff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Game Card Hover Reveal Smoother */
+.game-card-hover {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.game-card:hover .game-card-hover {
+  opacity: 1;
+}
+
+/* Social Icons Hover Pop */
+.socials a img {
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
