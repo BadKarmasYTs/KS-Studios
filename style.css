@@ -198,3 +198,48 @@ footer {
   font-size: 0.95rem;
   color: #aaa;
 }
+
+.contact-section {
+  padding: 60px 30px;
+  text-align: center;
+  background: #121212;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: white;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: #8e5eff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #a27eff;
+}
+
