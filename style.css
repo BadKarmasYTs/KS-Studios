@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Fredoka', sans-serif;
-  background: #0e0e0e;
+  background: #0b0b0b;
   color: white;
 }
 
@@ -10,10 +10,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: #1a1a1a;
+  background: #121212;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -29,10 +30,11 @@ header {
 .logo span {
   font-size: 1.5rem;
   font-weight: 700;
+  color: white;
 }
 
 nav a {
-  margin-left: 20px;
+  margin-left: 24px;
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -45,32 +47,71 @@ nav a:hover {
 
 .contact-btn {
   background: #8e5eff;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 10px;
   color: white;
+  font-weight: 600;
 }
 
 .hero {
   text-align: center;
-  padding: 80px 20px 40px;
+  padding: 100px 20px 60px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #347eff, #ff7a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #cfcfcf;
+  margin-bottom: 40px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: #1a1a1a;
+  padding: 24px 32px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+.stat h2 {
+  font-size: 2.4rem;
+  margin: 0;
+  color: #8e5eff;
+}
+
+.stat span {
+  display: block;
+  margin-top: 6px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .games-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
+  gap: 30px;
   padding: 40px;
 }
 
@@ -78,7 +119,7 @@ nav a:hover {
   background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
-  width: 300px;
+  width: 320px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   transition: transform 0.2s;
 }
@@ -94,7 +135,7 @@ nav a:hover {
 }
 
 .game-info {
-  padding: 16px;
+  padding: 18px;
 }
 
 .game-info h3 {
@@ -109,17 +150,17 @@ nav a:hover {
 }
 
 .about {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .about h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
 }
 
 .about p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #ccc;
   max-width: 800px;
   margin: 0 auto;
@@ -128,7 +169,6 @@ nav a:hover {
 footer {
   padding: 20px;
   text-align: center;
-  background: #111;
-  font-size: 0.9rem;
-  color: #aaa;
+  background: #0a0a0a;
+  color: #999;
 }
