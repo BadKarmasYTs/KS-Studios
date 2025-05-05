@@ -70,10 +70,12 @@
               <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
             </div>
           </a>
-          <div class="game-card-hover">
-            <p>Go to Game</p>
-          </div>
+          <div class="game-card-hover">Go to Game</div>
         `;
+        el.querySelector('.game-card-hover').addEventListener('click', () => {
+          window.open(game.url, '_blank');
+        });
+
         container.appendChild(el);
 
         totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
@@ -84,6 +86,7 @@
       document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
     });
 </script>
+
 
 </body>
 </html>
