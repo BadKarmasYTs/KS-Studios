@@ -50,34 +50,39 @@
     <p>© 2025 KS Studios. All rights reserved.</p>
   </footer>
 
-  <script>
-    fetch('games.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.querySelector('.games-container');
-        let totalPlayers = 0;
-        let totalVisits = 0;
+<script>
+  fetch('games.json')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.querySelector('.games-container');
+      let totalPlayers = 0;
+      let totalVisits = 0;
 
-        data.forEach(game => {
-          const el = document.createElement('div');
-          el.className = 'game-card';
-          el.innerHTML = `
+      data.forEach(game => {
+        const el = document.createElement('div');
+        el.className = 'game-card';
+        el.innerHTML = `
+          <a href="${game.url}" class="game-card-link">
             <img src="${game.thumbnail}" alt="${game.name}">
             <div class="game-info">
               <h3>${game.name}</h3>
               <p>${game.creator}</p>
               <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
             </div>
-          `;
-          container.appendChild(el);
+          </a>
+          <div class="game-card-hover">
+            <p>Go to Game</p>
+          </div>
+        `;
+        container.appendChild(el);
 
-          totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
-          totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
-        });
-
-        document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
-        document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
+        totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
+        totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
       });
-  </script>
+
+      document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
+      document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
+    });
+</script>
 </body>
 </html>
