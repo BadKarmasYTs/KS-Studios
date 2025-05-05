@@ -62,7 +62,7 @@
         const el = document.createElement('div');
         el.className = 'game-card';
         el.innerHTML = `
-          <a href="${game.url}" class="game-card-link">
+          <a href="${game.url}" class="game-card-link" target="_blank">
             <img src="${game.thumbnail}" alt="${game.name}">
             <div class="game-info">
               <h3>${game.name}</h3>
@@ -84,5 +84,6 @@
       document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
     });
 </script>
+
 </body>
 </html>
