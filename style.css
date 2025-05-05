@@ -19,10 +19,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px 40px;
   z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease-in-out;
+  width: 100%;
 }
 
 header:hover {
@@ -33,11 +34,6 @@ header:hover {
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo:hover {
-  transform: scale(1.05);
 }
 
 .logo img {
@@ -45,7 +41,7 @@ header:hover {
 }
 
 .logo span {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -65,7 +61,7 @@ nav a:hover {
 
 .contact-btn {
   background: #8e5eff;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-weight: 700;
   color: white;
@@ -77,20 +73,20 @@ nav a:hover {
 }
 
 .hero {
-  padding: 100px 20px 50px;
+  padding: 80px 20px 50px;
   text-align: center;
-  transition: transform 0.4s ease;
+  width: 100%;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 15px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #cfcfcf;
   max-width: 700px;
   margin: 0 auto;
@@ -107,7 +103,7 @@ nav a:hover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   margin-top: 50px;
 }
 
@@ -117,7 +113,7 @@ nav a:hover {
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  min-width: 180px;
+  min-width: 200px;
   flex-grow: 1;
   max-width: 300px;
   transition: transform 0.2s ease, background-color 0.3s ease;
@@ -171,7 +167,7 @@ nav a:hover {
 }
 
 .game-card:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -228,7 +224,7 @@ nav a:hover {
 .about {
   padding: 60px 30px;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -318,7 +314,7 @@ footer:hover {
 }
 
 .community-links .community-btn {
-  padding: 10px 20px;
+  padding: 12px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
