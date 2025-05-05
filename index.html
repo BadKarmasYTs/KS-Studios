@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KS Studios</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -15,7 +15,7 @@
     </div>
     <nav>
       <a href="#">Home</a>
-      <a href="#games">Games</a>
+      <a href="#games">Our Games</a>
       <a href="#about">About</a>
       <a class="contact-btn" href="#">Contact</a>
     </nav>
@@ -23,7 +23,7 @@
 
   <section class="hero">
     <h1>KS Studios</h1>
-    <p>Bringing chaos, fun, and creative madness to the Roblox universe.</p>
+    <p>Creating insane, chaotic, and ridiculously fun Roblox games for the culture.</p>
     <div class="stats">
       <div class="stat">
         <h2 id="totalPlayers">0</h2>
@@ -36,14 +36,14 @@
     </div>
   </section>
 
-  <section id="games" class="games">
-    <h2 class="section-title">Our Games</h2>
+  <section id="games" class="games-section">
+    <h2>Our Games</h2>
     <div class="games-container"></div>
   </section>
 
   <section id="about" class="about">
     <h2>About Us</h2>
-    <p>We're a Roblox studio focused on fun-first experiences — wild simulators, chaotic PVP, and more. Our games are built to blow up and stick.</p>
+    <p>KS Studios is a wild little Roblox group making the dumbest most addictive games you've ever touched. We like bright colors, chaos, and making people laugh while raging.</p>
   </section>
 
   <footer>
@@ -61,14 +61,14 @@
         data.forEach(game => {
           const el = document.createElement('div');
           el.className = 'game-card';
-          el.innerHTML = 
+          el.innerHTML = `
             <img src="${game.thumbnail}" alt="${game.name}">
             <div class="game-info">
               <h3>${game.name}</h3>
               <p>${game.creator}</p>
               <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
             </div>
-          ;
+          `;
           container.appendChild(el);
 
           totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
