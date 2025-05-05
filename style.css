@@ -6,8 +6,8 @@
 
 body {
   margin: 0;
-  background-color: #f4f4f4; /* Original background color */
-  color: #333; /* Original text color */
+  background: #0e0e0e;
+  color: #fff;
   font-family: 'Fredoka', sans-serif;
 }
 
@@ -252,7 +252,6 @@ footer {
   background: #a27eff;
 }
 
-/* Meet the Devs Section */
 .meet-the-devs {
   padding: 60px 30px;
   display: flex;
@@ -316,7 +315,6 @@ footer {
   color: #bbb;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.8rem;
