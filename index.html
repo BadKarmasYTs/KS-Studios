@@ -47,9 +47,10 @@
     <p>KS Studios is a multi-million dollar group... nah just joking, it's like 3 people working overtime all day every day.</p>
   </section>
 
- <section id="devs" class="devs-section">
-  <h2>Meet the Devs</h2>
-<div class="dev-card">
+  <section id="devs" class="devs-section">
+    <h2>Meet the Devs</h2>
+    <div class="devs-container">
+     <div class="dev-card">
   <img src="https://i.postimg.cc/xjJsGp02/channels4-profile.jpg" alt="Dev 1">
   <h3>BadKarmas_YT</h3>
   <p>The founder of K.S Studios and the dude who pushes everything back as long as possible.</p>
@@ -79,10 +80,7 @@
   </div>
 </div>
 
-
-  </div>
-</section>
-
+  </section>
 
   <section id="contact" class="contact-section">
     <h2>Contact Us</h2>
@@ -110,7 +108,7 @@
         data.forEach(game => {
           const el = document.createElement('div');
           el.className = 'game-card';
-          el.innerHTML = `
+          el.innerHTML = 
             <a href="${game.url}" class="game-card-link" target="_blank">
               <img src="${game.thumbnail}" alt="${game.name}">
               <div class="game-info">
@@ -120,7 +118,7 @@
               </div>
             </a>
             <div class="game-card-hover">Go to Game</div>
-          `;
+          ;
           el.querySelector('.game-card-hover').addEventListener('click', () => {
             window.open(game.url, '_blank');
           });
@@ -146,7 +144,7 @@
       if (!name || !email || !roblox || !message) return;
 
       const content = {
-        content: `**New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
+        content: **New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}
       };
 
       fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
