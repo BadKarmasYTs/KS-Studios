@@ -255,12 +255,11 @@ footer {
 /* Meet the Devs Section */
 .meet-the-devs {
   padding: 60px 30px;
-  text-align: center;
-  max-width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .meet-the-devs h2 {
@@ -274,6 +273,7 @@ footer {
   max-width: 800px;
   margin: 0 auto;
 }
+
 
 
 .devs-container {
