@@ -17,7 +17,7 @@
       <a href="#">Home</a>
       <a href="#games">Our Games</a>
       <a href="#about">About</a>
-      <a class="contact-btn" href="#">Contact</a>
+      <a class="contact-btn" href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -46,47 +46,86 @@
     <p>KS Studios is a multi-million dollar group... nah just joking, its like 3 people working overtime all day every day.</p>
   </section>
 
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="roblox" placeholder="Your Roblox Username" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
   <footer>
     <p>© 2025 KS Studios. All rights reserved.</p>
   </footer>
 
-<script>
-  fetch('games.json')
-    .then(res => res.json())
-    .then(data => {
-      const container = document.querySelector('.games-container');
-      let totalPlayers = 0;
-      let totalVisits = 0;
+  <script>
+    fetch('games.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.querySelector('.games-container');
+        let totalPlayers = 0;
+        let totalVisits = 0;
 
-      data.forEach(game => {
-        const el = document.createElement('div');
-        el.className = 'game-card';
-        el.innerHTML = `
-          <a href="${game.url}" class="game-card-link" target="_blank">
-            <img src="${game.thumbnail}" alt="${game.name}">
-            <div class="game-info">
-              <h3>${game.name}</h3>
-              <p>${game.creator}</p>
-              <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
-            </div>
-          </a>
-          <div class="game-card-hover">Go to Game</div>
-        `;
-        el.querySelector('.game-card-hover').addEventListener('click', () => {
-          window.open(game.url, '_blank');
+        data.forEach(game => {
+          const el = document.createElement('div');
+          el.className = 'game-card';
+          el.innerHTML = `
+            <a href="${game.url}" class="game-card-link" target="_blank">
+              <img src="${game.thumbnail}" alt="${game.name}">
+              <div class="game-info">
+                <h3>${game.name}</h3>
+                <p>${game.creator}</p>
+                <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
+              </div>
+            </a>
+            <div class="game-card-hover">Go to Game</div>
+          `;
+          el.querySelector('.game-card-hover').addEventListener('click', () => {
+            window.open(game.url, '_blank');
+          });
+
+          container.appendChild(el);
+
+          totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
+          totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
         });
 
-        container.appendChild(el);
-
-        totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
-        totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
+        document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
+        document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
       });
 
-      document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
-      document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const roblox = document.getElementById('roblox').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !roblox || !message) return;
+
+      const content = {
+        content: `**New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
+      };
+
+      fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(content)
+      }).then(res => {
+        if (res.ok) {
+          alert('Message sent!');
+          document.getElementById('contactForm').reset();
+        } else {
+          alert('Failed to send message.');
+        }
+      }).catch(() => {
+        alert('Error sending message.');
+      });
     });
-</script>
-
-
+  </script>
 </body>
 </html>
