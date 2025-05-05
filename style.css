@@ -81,7 +81,7 @@ nav a:hover {
   padding: 20px 30px;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   min-width: 180px;
 }
 
@@ -116,11 +116,12 @@ nav a:hover {
 }
 
 .game-card {
+  position: relative;
   background: #1b1b1b;
   border-radius: 18px;
   overflow: hidden;
   width: 320px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease;
 }
 
@@ -147,6 +148,30 @@ nav a:hover {
   margin: 6px 0;
   font-size: 0.95rem;
   color: #bbb;
+}
+
+.game-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-card-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.game-card:hover .game-card-hover {
+  display: block;
 }
 
 .about {
