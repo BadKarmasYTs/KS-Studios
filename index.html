@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KS Studios</title>
+  <link rel="icon" type="image/png" href="Frame_21.png" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
 </head>
@@ -110,9 +111,6 @@
     </form>
   </section>
 
-
-
-
   <footer>
     <p>© 2025 KS Studios. All rights reserved.</p>
   </footer>
@@ -141,10 +139,9 @@
           const info = document.createElement('div');
           info.className = 'game-info';
           info.innerHTML = 
-            <h3>${game.name}</h3>
+            `<h3>${game.name}</h3>
             <p>${game.creator}</p>
-            <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
-          ;
+            <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>`;
 
           const hoverDiv = document.createElement('div');
           hoverDiv.className = 'game-card-hover';
@@ -178,7 +175,7 @@
       if (!name || !email || !roblox || !message) return;
 
       const content = {
-        content: **New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}
+        content: `**New Contact Form Submission**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
       };
 
       fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
