@@ -265,7 +265,12 @@ footer {
 .meet-the-devs h2 {
   font-size: 2.2rem;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
+
 
 .meet-the-devs p {
   font-size: 1.1rem;
