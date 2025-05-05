@@ -59,7 +59,7 @@
     const playersOnline = new countUp.CountUp('playersOnline', 0, { duration: 2 })
     const totalVisits = new countUp.CountUp('totalVisits', 0, { duration: 2 })
 
-    fetch("https://games.roblox.com/v1/games?universeIds=YOUR_UNIVERSE_ID_HERE")
+    fetch("https://games.roblox.com/v1/games?universeIds=6757098011")
       .then(res => res.json())
       .then(data => {
         const gameData = data.data[0]
